@@ -5,7 +5,7 @@
 % Christopher Whyte 22/05/25
 
 set(0,'defaulttextinterpreter','latex')
-rng(0) 
+rng('shuffle') 
 close all
 clear
 
