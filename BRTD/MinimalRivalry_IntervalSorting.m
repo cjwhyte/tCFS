@@ -1,5 +1,7 @@
 % Interval sorting script
 
+% Christopher Whyte 02/10/25
+
 function [X_dom_FR, X_sup_FR, X_dom_probe_FR, X_sup_probe_FR] = MinimalRivalry_IntervalSorting(X_store,p)
    
     % n sorting
@@ -30,7 +32,7 @@ function [X_dom_FR, X_sup_FR, X_dom_probe_FR, X_sup_probe_FR] = MinimalRivalry_I
    
     dom_counter = 0; sup_counter = 0; 
     dom_probe_counter = 0; sup_probe_counter = 0; 
-    % sort activity into invervals of 6
+    % sort activity into invervals of 10
     for ii = 1:size(X_struct,2)
         trl_length = size(X_struct{ii},2);
         interval_size =  floor(trl_length/num_intervals);
@@ -62,28 +64,12 @@ function [X_dom_FR, X_sup_FR, X_dom_probe_FR, X_sup_probe_FR] = MinimalRivalry_I
         % grab activity when R is dominant and there is a probe
         elseif sum(X_struct{ii}(3,:))>0 & ~isempty(find(X_struct{ii}(4,:)>0)) & find(X_struct{ii}(4,:)>0) + summation_length < size(X_struct{ii}(4,:),2)
             dom_probe_counter = dom_probe_counter + 1;
-            for jj = 1:num_intervals
-                if intervals(jj+1) > size(X_struct{ii},2)
-                    end_idx = size(X_struct{ii},2);
-                else 
-                    end_idx = intervals(jj+1);
-                end 
-                X_dom_probe_norm{dom_probe_counter,jj} = X_struct{ii}(2,intervals(jj):end_idx);
-            end 
             probe_idx = find(X_struct{ii}(4,:)>0);
             X_dom_probe_FR(dom_probe_counter,1) = sum(X_struct{ii}(2,probe_idx(1):probe_idx(1)+summation_length)).*p.DT;
             [~,X_dom_probe_FR(dom_probe_counter,2)] = min(abs(intervals(2:end)-probe_idx(1)),[],"All");
         % grab activity when R is suppressed and there is a probe
         elseif sum(X_struct{ii}(3,:))<0 & ~isempty(find(X_struct{ii}(4,:)>0)) & find(X_struct{ii}(4,:)>0) + summation_length < size(X_struct{ii}(4,:),2)
             sup_probe_counter = sup_probe_counter + 1;
-            for jj = 1:num_intervals
-                if intervals(jj+1) > size(X_struct{ii},2)
-                    end_idx = size(X_struct{ii},2);
-                else 
-                    end_idx = intervals(jj+1);
-                end 
-                X_sup_probe_norm{sup_probe_counter,jj} = X_struct{ii}(2,intervals(jj):end_idx);
-            end 
             probe_idx = find(X_struct{ii}(4,:)>0);
             X_sup_probe_FR(sup_probe_counter,1) = sum(X_struct{ii}(2,probe_idx(1):probe_idx(1)+summation_length)).*p.DT;
             [~,X_sup_probe_FR(sup_probe_counter,2)] = min(abs(intervals(2:end)-probe_idx(1)),[],"All");
