@@ -1,6 +1,6 @@
 # tCFS
 
-This repository contain code to reproduce the simulations and analysis reported in the pair of companion papers:
+This repository contains code to reproduce the simulations and analysis reported in the pair of companion papers:
 
 (1) - A Minimal Physiological Model of Perceptual Suppression and Breakthrough in Visual Rivalry
 (2) - A Minimal Quantitative Model of Perceptual Suppression and Breakthrough in Visual Rivalry
