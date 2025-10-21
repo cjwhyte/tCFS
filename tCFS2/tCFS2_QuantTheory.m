@@ -13,7 +13,7 @@ set(0,'defaulttextinterpreter','latex');
 %% ================== CONFIGURATION ==================
 
 % Choose the analysis mode: 'sweep' or 'theory'
-config.analysis_mode = 'sweep'; 
+config.analysis_mode = 'theory'; 
 
 %% ================== MODEL & SIMULATION PARAMETERS ==================
 
