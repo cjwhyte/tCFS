@@ -3,7 +3,7 @@
 This repository contains code to reproduce the simulations and analysis reported in the pair of companion papers:
 
 (1) - A Minimal Physiological Model of Perceptual Suppression and Breakthrough in Visual Rivalry: 
-https://www.biorxiv.org/content/10.1101/2025.05.28.656716v1.abstract
+https://jov.arvojournals.org/article.aspx?articleid=2811342
 
 (2) - A Minimal Quantitative Model of Perceptual Suppression and Breakthrough in Visual Rivalry: https://arxiv.org/abs/2510.17154
 
